@@ -1,0 +1,17 @@
+// UTILITY
+.btn {
+  border: none;
+  padding: 1em;
+  color: #fff;
+
+  &--submit {
+    background: rgb(8, 206, 8);
+  }
+  &--delete {
+    background: rgb(151, 41, 41);
+    padding: 5px;
+  }
+  &--disabled {
+    background: rgb(126, 125, 125);
+  }
+}

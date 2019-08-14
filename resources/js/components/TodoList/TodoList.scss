@@ -1,0 +1,36 @@
+@import "../../../sass/vars";
+@import "../../../sass/media";
+.todos {
+    width: 100%;
+    &__list {
+        list-style: none;
+        padding: 0;
+        @include sm {
+            padding: 1em;
+        }
+    }
+    &__item {
+        margin: 0.1em 0 0 0;
+        display: flex;
+        align-items: center;
+        justify-content: flex-end;
+        background: $white;
+        padding: 0.8em;
+    }
+    &__title {
+        font-size: 32px;
+        width: 100%;
+        padding: 0 1em 0 0;
+        word-break: break-word;
+        @include sm {
+            font-size: 20px;
+            width: 120px;
+        }
+    }
+    &__complete {
+        padding: 0 0 0 1em;
+    }
+    &-completed--true {
+        text-decoration: line-through;
+    }
+}
