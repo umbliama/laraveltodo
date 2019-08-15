@@ -6,16 +6,18 @@ import "./TodoList.scss";
 class TodoList extends Component {
     deleteTodo = taskId => {
         this.props.store.deleteTodo(taskId);
+        this.getTodos();
     };
     completeTodo = todo => {
         this.props.store.completeTodo(todo);
+        this.getTodos();
     };
 
     getTodos = () => {
         this.props.store.fetchTodos();
     };
 
-    componentWillMount() {
+    componentDidMount() {
         this.getTodos();
     }
 

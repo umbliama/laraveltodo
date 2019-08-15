@@ -17,6 +17,7 @@ class AddTodo extends Component {
     };
     addTodo = () => {
         this.props.store.addTodo(this.state.textTodo);
+        this.props.store.fetchTodos();
     };
 
     render() {

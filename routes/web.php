@@ -15,9 +15,9 @@ Route::get('/', function () {
 });
 
 
+Auth::routes();
+Route::get('/home', 'HomeController@index')->name('home');
+
 Route::get("/task/{id}/delete","Api\TasksController@destroy");
 Route::post("/task","Api\TasksController@store");
-Route::put('/task/{id}/update',"Api\TasksController@update");
-Auth::routes();
-
-Route::get('/home', 'HomeController@index')->name('home');
+Route::put('/task/{id}/update',"Api\TasksController@update");   

@@ -13,21 +13,7 @@ class TodoStore {
     }
 
     @action addTodo(taskName) {
-        // this.todos.push({
-        //     id: this.todos.length + 1,
-        //     name: task,
-        //     isCompleted: false
-        // });
-        console.log(taskName);
-
-        axios
-            .post("/task", { name: taskName })
-            .then(response => {
-                console.log(response);
-            })
-            .catch(error => {
-                console.error(error);
-            });
+        axios.post("/task", { name: taskName });
     }
 
     @action deleteTodo(taskId) {

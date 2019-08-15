@@ -18,8 +18,6 @@ class TasksController extends Controller
     public function index()
     {
         $tasks = Task::all();
-        // $tasks = Task::where("id",8);
-
 
         return response()->json($tasks);    
     }

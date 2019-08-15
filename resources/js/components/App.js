@@ -4,7 +4,7 @@ import store from "../store/TodoStore";
 import TodoList from "./TodoList/TodoList";
 import { observer } from "mobx-react";
 import AddTodo from "./AddTodo/AddTodo";
-import router from "react-router-dom";
+import Header from "./layouts/Header";
 import "./App.scss";
 
 @observer
@@ -17,6 +17,7 @@ class App extends Component {
         const store = this.props.store;
         return (
             <div className="todo__container">
+                <Header />
                 <AddTodo store={store} />
                 <TodoList store={store} />
             </div>
