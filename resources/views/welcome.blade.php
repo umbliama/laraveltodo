@@ -13,7 +13,12 @@
     
     </head>
     <body>
-        <div id="root"></div>
+        @auth
+            <div id="root"></div>
+        @endauth
+        @guest
+            <p>Please sign in</p>    
+        @endguest
         <script src="{{mix('js/app.js')}}" ></script>
     </body>
 </html>

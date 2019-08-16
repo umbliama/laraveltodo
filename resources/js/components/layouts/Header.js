@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import { BrowserRouter as Router, Route, Link } from "react-router-dom";
+import Completed from "../UncompletedTodosList/UncompletedTodosList";
 
 class Header extends Component {
     render() {
@@ -15,11 +16,14 @@ class Header extends Component {
                                 <Link to="/">Completed</Link>
                             </li>
                             <li className="header__item">
-                                <Link to="/">Uncompleted</Link>
+                                <Link to="/completed" component={Completed}>
+                                    Completed
+                                </Link>
                             </li>
                         </ul>
                     </nav>
                 </div>
+                <Route exact path="/completed" component={Completed} />
             </Router>
         );
     }

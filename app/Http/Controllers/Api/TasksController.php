@@ -43,6 +43,7 @@ class TasksController extends Controller
         $task = new Task();
         
         $task->name = $request->get("name");
+        $task->user_id = $request->get("user_id");
 
         $task->save();
 

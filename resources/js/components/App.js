@@ -6,6 +6,7 @@ import { observer } from "mobx-react";
 import AddTodo from "./AddTodo/AddTodo";
 import Header from "./layouts/Header";
 import "./App.scss";
+import { BrowserRouter } from "react-router-dom";
 
 @observer
 class App extends Component {
@@ -13,14 +14,19 @@ class App extends Component {
         super(props);
         this.state = {};
     }
+    componentDidMount() {
+        store.getUserInfo();
+    }
     render() {
         const store = this.props.store;
         return (
-            <div className="todo__container">
-                <Header />
-                <AddTodo store={store} />
-                <TodoList store={store} />
-            </div>
+            <BrowserRouter>
+                <div className="todo__container">
+                    <Header />
+                    <AddTodo store={store} />
+                    <TodoList store={store} />
+                </div>
+            </BrowserRouter>
         );
     }
 }

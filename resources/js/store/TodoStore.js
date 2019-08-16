@@ -3,9 +3,12 @@ import { computed } from "mobx";
 import axios from "axios";
 class TodoStore {
     @observable todos = [];
+    @observable user = {};
 
     @computed get getTodos() {
-        return this.todos.filter(todo => todo.isCompleted === 0);
+        return this.todos.filter(
+            todo => todo.isCompleted === 0 && todo.user_id === this.user.id
+        );
     }
 
     @computed get completedTodos() {
@@ -13,7 +16,7 @@ class TodoStore {
     }
 
     @action addTodo(taskName) {
-        axios.post("/task", { name: taskName });
+        axios.post("/task", { name: taskName, user_id: this.user.id });
     }
 
     @action deleteTodo(taskId) {
@@ -25,7 +28,6 @@ class TodoStore {
     }
 
     @action completeTodo(todoId) {
-        // todo.isCompleted = !todo.isCompleted;
         try {
             axios.put(`/task/${todoId}/update`);
         } catch (error) {
@@ -37,6 +39,15 @@ class TodoStore {
         try {
             const response = await axios.get("/api/tasks");
             this.todos = response.data;
+        } catch (error) {
+            console.error(error);
+        }
+    }
+
+    @action async getUserInfo() {
+        try {
+            const response = await axios.get("/user");
+            this.user = response.data;
         } catch (error) {
             console.error(error);
         }
