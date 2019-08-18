@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import { BrowserRouter as Router, Route, Link } from "react-router-dom";
 import Completed from "../UncompletedTodosList/UncompletedTodosList";
+import "./Header.scss";
 
 class Header extends Component {
     render() {
@@ -10,20 +11,28 @@ class Header extends Component {
                     <nav className="header__nav">
                         <ul className="header__list">
                             <li className="header__item">
-                                <Link to="/">Home</Link>
+                                <Link className="header__link" to="/">
+                                    Home
+                                </Link>
                             </li>
                             <li className="header__item">
-                                <Link to="/">Completed</Link>
+                                <Link className="header__link" to="/">
+                                    Completed
+                                </Link>
                             </li>
                             <li className="header__item">
-                                <Link to="/completed" component={Completed}>
+                                <Link
+                                    className="header__link"
+                                    to="/completed"
+                                    component={Completed}
+                                >
                                     Completed
                                 </Link>
                             </li>
                         </ul>
                     </nav>
+                    <Route path="/completed" component={Completed} />
                 </div>
-                <Route exact path="/completed" component={Completed} />
             </Router>
         );
     }

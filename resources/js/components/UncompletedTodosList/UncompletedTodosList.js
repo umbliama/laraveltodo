@@ -8,6 +8,7 @@ class UncompletedTodosList extends Component {
     render() {
         return (
             <div className="todos todos--uncompleted">
+                Completed
                 <ul className="todos__list">
                     {store.completedTodos.map(todo => (
                         <li className="todos__item" key={todo.id}>
