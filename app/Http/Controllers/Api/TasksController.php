@@ -83,7 +83,7 @@ class TasksController extends Controller
     {
         $task = Task::find($id);
 
-        $task->isCompleted = true;
+        $task->isCompleted = !$task->isCompleted;
         $task->save();
 
         // return Redirect::back()->with("message", "Task has been added to completed list");

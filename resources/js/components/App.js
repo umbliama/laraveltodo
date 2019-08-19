@@ -3,10 +3,11 @@ import ReactDOM from "react-dom";
 import store from "../store/TodoStore";
 import TodoList from "./TodoList/TodoList";
 import { observer } from "mobx-react";
-import AddTodo from "./AddTodo/AddTodo";
+import CompletedTodoList from "./CompletedTodoList/CompletedTodoList";
 import Header from "./layouts/Header";
+import Home from "./Home/Home";
 import "./App.scss";
-import { BrowserRouter } from "react-router-dom";
+import { BrowserRouter, Switch, Route } from "react-router-dom";
 
 @observer
 class App extends Component {
@@ -21,11 +22,27 @@ class App extends Component {
         const store = this.props.store;
         return (
             <BrowserRouter>
-                <div className="todo__container">
-                    <Header />
-                    <AddTodo store={store} />
-                    <TodoList store={store} />
-                </div>
+                <Switch>
+                    <div className="todo__container">
+                        <Header />
+                        <Switch>
+                            <Route
+                                path="/home"
+                                component={() => <Home store={store} />}
+                            />
+                            <Route
+                                path="/uncompleted"
+                                component={() => <TodoList store={store} />}
+                            />
+                            <Route
+                                path="/completed"
+                                component={() => (
+                                    <CompletedTodoList store={store} />
+                                )}
+                            />
+                        </Switch>
+                    </div>
+                </Switch>
             </BrowserRouter>
         );
     }

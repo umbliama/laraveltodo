@@ -12,7 +12,7 @@ class TodoStore {
     }
 
     @computed get completedTodos() {
-        return this.todos.filter(todo => todo.isCompleted === true);
+        return this.todos.filter(todo => todo.isCompleted === 1);
     }
 
     @action addTodo(taskName) {

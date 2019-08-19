@@ -1,14 +1,29 @@
 import React, { Component } from "react";
 
-class UncompletedTodosList extends Component {
+class CompletedTodoList extends Component {
     constructor(props) {
         super(props);
         this.state = {};
     }
+    deleteTodo = taskId => {
+        this.props.store.deleteTodo(taskId);
+        this.getTodos();
+    };
+    completeTodo = todo => {
+        this.props.store.completeTodo(todo);
+        this.getTodos();
+    };
+
+    getTodos = () => {
+        this.props.store.fetchTodos();
+    };
+    componentDidMount() {
+        this.getTodos();
+    }
     render() {
+        const store = this.props.store;
         return (
-            <div className="todos todos--uncompleted">
-                Completed
+            <div className="todos todos--completed">
                 <ul className="todos__list">
                     {store.completedTodos.map(todo => (
                         <li className="todos__item" key={todo.id}>
@@ -46,4 +61,4 @@ class UncompletedTodosList extends Component {
     }
 }
 
-export default UncompletedTodosList;
+export default CompletedTodoList;

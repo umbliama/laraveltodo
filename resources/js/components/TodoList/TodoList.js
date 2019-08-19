@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import { observer } from "mobx-react";
+import AddTodo from "../AddTodo/AddTodo";
 import "./TodoList.scss";
 
 @observer
@@ -25,6 +26,7 @@ class TodoList extends Component {
         const store = this.props.store;
         return (
             <div className="todos">
+                <AddTodo store={store} />
                 <ul className="todos__list">
                     {store.getTodos.map(todo => (
                         <li className="todos__item" key={todo.id}>
