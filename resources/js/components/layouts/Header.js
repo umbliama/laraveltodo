@@ -1,6 +1,5 @@
 import React, { Component } from "react";
-import { BrowserRouter as Router, Route, Link, Switch } from "react-router-dom";
-import Completed from "../CompletedTodoList/CompletedTodoList";
+import { Link, Switch } from "react-router-dom";
 import "./Header.scss";
 
 class Header extends Component {
@@ -11,7 +10,7 @@ class Header extends Component {
                     <nav className="header__nav">
                         <ul className="header__list">
                             <li className="header__item">
-                                <Link className="header__link" to="/home">
+                                <Link className="header__link" to="/">
                                     Home
                                 </Link>
                             </li>

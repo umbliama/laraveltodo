@@ -12,7 +12,14 @@ class TodoStore {
     }
 
     @computed get completedTodos() {
-        return this.todos.filter(todo => todo.isCompleted === 1);
+        console.log(
+            this.todos.filter(
+                todo => todo.isCompleted == 1 && todo.user_id === this.user_id
+            )
+        );
+        return this.todos.filter(
+            todo => todo.isCompleted === 1 && todo.user_id === this.user_id
+        );
     }
 
     @action addTodo(taskName) {

@@ -5,7 +5,6 @@ import TodoList from "./TodoList/TodoList";
 import { observer } from "mobx-react";
 import CompletedTodoList from "./CompletedTodoList/CompletedTodoList";
 import Header from "./layouts/Header";
-import Home from "./Home/Home";
 import "./App.scss";
 import { BrowserRouter, Switch, Route } from "react-router-dom";
 
@@ -26,10 +25,6 @@ class App extends Component {
                     <div className="todo__container">
                         <Header />
                         <Switch>
-                            <Route
-                                path="/home"
-                                component={() => <Home store={store} />}
-                            />
                             <Route
                                 path="/uncompleted"
                                 component={() => <TodoList store={store} />}
