@@ -16,6 +16,7 @@ class App extends Component {
     }
     componentDidMount() {
         store.getUserInfo();
+        store.fetchTodos();
     }
     render() {
         const store = this.props.store;

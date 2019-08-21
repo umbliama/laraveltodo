@@ -12,13 +12,8 @@ class TodoStore {
     }
 
     @computed get completedTodos() {
-        console.log(
-            this.todos.filter(
-                todo => todo.isCompleted == 1 && todo.user_id === this.user_id
-            )
-        );
         return this.todos.filter(
-            todo => todo.isCompleted === 1 && todo.user_id === this.user_id
+            todo => todo.isCompleted === 1 && todo.user_id === this.user.id
         );
     }
 

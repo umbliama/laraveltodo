@@ -23,7 +23,9 @@ Route::put('/task/{id}/update',"Api\TasksController@update");
 Route::get("/user", function() {
     return Auth::user();
 });
+Route::get('/logout', 'Auth\LoginController@logout');
 
 Route::get('/{view?}', function () {
     return view('welcome');
 })->where('view', '(.*)');
+

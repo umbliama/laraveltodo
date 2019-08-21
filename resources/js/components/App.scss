@@ -1,4 +1,4 @@
-@import "../../sass/vars";
+@import "../../sass/variables";
 @import "../../sass/utility";
 body {
     background: $dark-color;
@@ -10,4 +10,8 @@ body {
     flex-direction: column;
     max-width: 550px;
     align-items: center;
+}
+
+.white {
+    color: $white;
 }

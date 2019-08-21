@@ -17,9 +17,9 @@
             <div id="root"></div>
         @endauth
         @guest
-            <p>Please sign in or sign up</p>  
-            <a href="/login">Login</a>  
-            <a href="/register">Register</a>
+            <p class="white">Please sign in or sign up</p>  
+            <a class="header__link white" href="/login">Login</a>  
+            <a class="header__link white" href="/register">Register</a>
         @endguest
         <script src="{{mix('js/app.js')}}" ></script>
     </body>
